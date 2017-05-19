@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.UUID;
-
+import java.awt.*;
 import javax.swing.JOptionPane;
 
 import com.catchmind.pro.util.Catch_Protocol;
@@ -117,18 +117,18 @@ public class UserDAO {
 
                return user;
             } else {
-               System.out.println("[¼­¹ö]ºñ¹Ð¹øÈ£ ºÒÀÏÄ¡");
-               // JOptionPane.showMessageDialog(null, "ºñ¹Ð¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù
+               System.out.println("[ì„œë²„]ë¹„ë°€ë²ˆí˜¸ ë¶ˆì¼ì¹˜");
+               // JOptionPane.showMessageDialog(null, "ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤
                // !!");
                return null;
             }
          } else {
-            // JOptionPane.showMessageDialog(null, "Á¸ÀçÇÏÁö ¾Ê´Â ID ÀÔ´Ï´Ù.");
-            System.out.println("[¼­¹ö] Á¸ÀçÇÏÁö ¾Ê´Â ID");
+            // JOptionPane.showMessageDialog(null, "ì¡´ìž¬í•˜ì§€ ì•ŠëŠ” ID ìž…ë‹ˆë‹¤.");
+            System.out.println("[ì„œë²„] ì¡´ìž¬í•˜ì§€ ì•ŠëŠ” ID");
          }
 
       } catch (SQLException e) {
-         System.out.println("DB ¿¡·¯!!");
+         System.out.println("DB ì—ëŸ¬!!");
          e.printStackTrace();
       }
       System.out.println("getUser()");
@@ -141,7 +141,7 @@ public class UserDAO {
             + "email , nickName , personName , birth_year , birth_month , birth_day, user_pokemon) "
             + "values( catch_user_seq.nextval,?,?,?,?,?,?,?,?,?,?)";
 
-      System.out.println("DAO Æ÷ÄÏ¸ó¹øÈ£ : "+vo.getUser_pokemon());
+      System.out.println("DAO í¬ì¼“ëª¬ë²ˆí˜¸ : "+vo.getUser_pokemon());
       String pw = vo.getUser_password();
       String pw_hash1 = pw.substring(0, (pw.length() / 2)) + "password";
       String pw_hash2 = pw.substring(pw.length() / 2) + "password";
@@ -185,7 +185,7 @@ public class UserDAO {
       }
       sql += "email='"+vo.getEmail()+"', nickname='"+vo.getNickName()+"' where seq="+vo.getSeq();
       
-      System.out.println("dao È®ÀÎ");
+      System.out.println("dao í™•ì¸");
       System.out.println(vo);
       
       try {
@@ -197,13 +197,13 @@ public class UserDAO {
          pstmt.setInt(5, vo.getSeq());*/
          int res = pstmt.executeUpdate();
          if (res > 0) {
-            JOptionPane.showMessageDialog(null, "È¸¿ø ¼öÁ¤À» ¼º°øÀûÀ¸·Î ¸¶ÃÆ½À´Ï´Ù. ÀçÁ¢¼ÓÀ» ÇÏ¸é Àû¿ëµË´Ï´Ù.");
+            JOptionPane.showMessageDialog(null, "íšŒì› ìˆ˜ì •ì„ ì„±ê³µì ìœ¼ë¡œ ë§ˆì³¤ìŠµë‹ˆë‹¤. ìž¬ì ‘ì†ì„ í•˜ë©´ ì ìš©ë©ë‹ˆë‹¤.");
          } else {
-            JOptionPane.showMessageDialog(null, "È¸¿ø¼öÁ¤ ½ÇÆÐ!", "È¸¿ø¼öÁ¤ ¿À·ù", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "íšŒì›ìˆ˜ì • ì‹¤íŒ¨!", "íšŒì›ìˆ˜ì • ì˜¤ë¥˜", JOptionPane.ERROR_MESSAGE);
          }
       } catch (SQLException e) {
          e.printStackTrace();
-         JOptionPane.showMessageDialog(null, "È¸¿ø¼öÁ¤ ½ÇÆÐ!", "È¸¿ø¼öÁ¤ ¿À·ù", JOptionPane.ERROR_MESSAGE);
+         JOptionPane.showMessageDialog(null, "íšŒì›ìˆ˜ì • ì‹¤íŒ¨!", "íšŒì›ìˆ˜ì • ì˜¤ë¥˜", JOptionPane.ERROR_MESSAGE);
       }
    }
 
